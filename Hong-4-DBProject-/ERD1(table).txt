@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/?keyword=default -->
+<sql>
+<datatypes db="mysql">
+    <group color="rgb(238,238,170)" label="Numeric">
+        <type label="Integer" quote="" sql="INTEGER" length="0" />
+         <type label="TINYINT" quote="" sql="TINYINT" length="0" />
+         <type label="SMALLINT" quote="" sql="SMALLINT" length="0" />
+         <type label="MEDIUMINT" quote="" sql="MEDIUMINT" length="0" />
+         <type label="INT" quote="" sql="INT" length="0" />
+        <type label="BIGINT" quote="" sql="BIGINT" length="0" />
+        <type label="Decimal" quote="" sql="DECIMAL" length="1" re="DEC" />
+        <type label="Single precision" quote="" sql="FLOAT" length="0" />
+        <type label="Double precision" quote="" sql="DOUBLE" length="0" re="DOUBLE" />
+    </group>
+
+    <group color="rgb(255,200,200)" label="Character">
+        <type label="Char" quote="'" sql="CHAR" length="1" />
+        <type label="Varchar" quote="'" sql="VARCHAR" length="1" />
+        <type label="Text" quote="'" sql="MEDIUMTEXT" length="0" re="TEXT" />
+        <type label="Binary" quote="'" sql="BINARY" length="1" />
+        <type label="Varbinary" quote="'" sql="VARBINARY" length="1" />
+        <type label="BLOB" quote="'" sql="BLOB" length="0" re="BLOB" />
+    </group>
+
+    <group color="rgb(200,255,200)" label="Date &amp; Time">
+        <type label="Date" quote="'" sql="DATE" length="0" />
+        <type label="Time" quote="'" sql="TIME" length="0" />
+        <type label="Datetime" quote="'" sql="DATETIME" length="0" />
+        <type label="Year" quote="" sql="YEAR" length="0" />
+        <type label="Timestamp" quote="'" sql="TIMESTAMP" length="0" />
+    </group>
+
+    <group color="rgb(200,200,255)" label="Miscellaneous">
+        <type label="ENUM" quote="" sql="ENUM" length="1" />
+        <type label="SET" quote="" sql="SET" length="1" />
+        <type label="Bit" quote="" sql="bit" length="0" />
+    </group>
+</datatypes><table x="692.8600082397461" y="230.9499340057373" name="진단기록">
+<row name="진단번호" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="진단명" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="요금" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="진단일" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="진단환자" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="환자" row="환자번호" />
+</row>
+<row name="진단의사" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="의사" row="의사번호" />
+</row>
+<row name="예약번호_예약" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="예약" row="예약번호" />
+</row>
+<key type="PRIMARY" name="">
+<part>진단번호</part>
+</key>
+</table>
+<table x="574.3799438476562" y="430.94997215270996" name="예약">
+<row name="예약번호" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="예약타입" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="예약일" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="의사번호_의사" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="의사" row="의사번호" />
+</row>
+<row name="환자번호_환자" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="환자" row="환자번호" />
+</row>
+<row name="장소번호_장소" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="장소" row="장소번호" />
+</row>
+<row name="예약시간(길이)" null="1" autoincrement="0">
+<datatype>TIME</datatype>
+<default>NULL</default></row>
+<row name="간호사번호_간호사" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="간호사" row="간호사번호" />
+</row>
+<key type="PRIMARY" name="">
+<part>예약번호</part>
+</key>
+</table>
+<table x="314.77001953125" y="329.049991607666" name="의사">
+<row name="의사번호" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="이름" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="핸드폰번호" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="주민번호" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="주소" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="직급" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="부서번호" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><relation table="부서" row="부서번호" />
+</row>
+<key type="PRIMARY" name="">
+<part>의사번호</part>
+</key>
+</table>
+<table x="1126.239990234375" y="270.0099868774414" name="처방기록">
+<row name="처방번호" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="처방약" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="입원기간" null="1" autoincrement="0">
+<datatype>TIME</datatype>
+<default>NULL</default></row>
+<row name="요금" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="치유정도" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="식단" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="처방내용" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="진단번호_진단기록" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="진단기록" row="진단번호" />
+<relation table="진단기록" row="진단번호" />
+<relation table="진단기록" row="진단번호" />
+</row>
+<row name="예약번호_예약" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="예약" row="예약번호" />
+</row>
+<key type="PRIMARY" name="">
+<part>처방번호</part>
+</key>
+</table>
+<table x="46.66001892089844" y="79.5099983215332" name="부서">
+<row name="부서번호" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="부서장" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="부서명" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="병상수" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="간호사수" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="의사수" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="의료장비여부" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>부서번호</part>
+</key>
+</table>
+<table x="941.6400756835937" y="544.2800178527832" name="환자">
+<row name="환자번호" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="이름" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="핸드폰번호" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="주민번호" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="가족력" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="예방접종" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="알레르기" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="질병부위" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="지불능력" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="보험" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>환자번호</part>
+</key>
+</table>
+<table x="634.0499877929687" y="0" name="수술기록">
+<row name="수술번호" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="수술시간" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="수술내용" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="담당의사번호" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="의사" row="의사번호" />
+</row>
+<row name="처방번호_처방기록" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="처방기록" row="처방번호" />
+</row>
+<row name="수술부위" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="예약번호_예약" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="예약" row="예약번호" />
+</row>
+<key type="PRIMARY" name="">
+<part>수술번호</part>
+</key>
+</table>
+<table x="331.42999267578125" y="75.71999740600586" name="간호사">
+<row name="간호사번호" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="직급" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="이름" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="부서번호" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="부서" row="부서번호" />
+</row>
+<key type="PRIMARY" name="">
+<part>간호사번호</part>
+</key>
+</table>
+<table x="683.3299865722656" y="705.9099426269531" name="장소">
+<row name="장소번호" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="장소타입" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>장소번호</part>
+</key>
+</table>
+</sql>
